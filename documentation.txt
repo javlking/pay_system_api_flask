@@ -1,26 +1,26 @@
 // Пользователи
 
-method: [POST]
+method: [POST] ++
 endpoint: /register/<name>/<phone_number>/<JWT>
 response: {'status': 1, 'message': 'Success', 'user_id': integer}
 description: Регистрация пользователя
 
-method: [POST]
+method: [POST] ++
 endpoint: /add-card/<card_number>/<exp_date>/<card_name>/<phone_number>/<JWT>
 response: {'status': 1, 'message': 'Success'}
 description: Добавить карту в приложение
 
-method: [POST]
+method: [POST] ++
 endpoint: /transfer-money/<user_from_id>/<user_from_card>/<to_card>/<amount>/<JWT>
 response: {'status': 1, 'message': 'Success', 'token': string}
 description: Перевод денег с одного счета на другой
 
-method: [POST]
-endpoint: /pay-service/<service_id>/<amount>/<JWT>
+method: [POST] ++
+endpoint: /pay-service/<service_id>/<amount>/<from_card>/<JWT>
 response: {'status': 1, 'message': 'Success', 'token': string}
 description: Оплачивать услуги
 
-method: [GET]
+method: [GET] ++
 endpoint: /expenses/<card_number or all>/<JWT>
 response: {'status': 1, 'result': [
                                         {'amount': integer,
@@ -32,7 +32,7 @@ response: {'status': 1, 'result': [
             }
 description: Мониторинг затрат
 
-method: [DELETE]
+method: [DELETE] ++
 endpoint: /delete-card/<card_number>/<user_id>/<JWT>
 response: {'status': 1, 'message': 'Success'}
 description: Удалить карту из приложения
