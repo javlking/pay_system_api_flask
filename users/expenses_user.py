@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask_restx import Api, Resource
 
-from database.models import Payment
+from database.models import TransfersP2P
 
 # bp = Blueprint('expenses', __name__)
 # api = Api(bp)
@@ -18,7 +18,7 @@ class GetUserExpenses(Resource):
     def get(self):
         card_number = model_get_expenses.parse_args()
 
-        result = Payment().monitor_pays(card_number.get('card_number'))
+        result = TransfersP2P().monitoring_pays(card_number.get('card_number'))
 
         if result:
             return {'status': 1, 'message': result}
